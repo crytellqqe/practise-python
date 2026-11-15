@@ -1,6 +1,0 @@
-{
-  "python-envs.defaultEnvManager": "ms-python.python:system",
-  "editor.tokenColorCustomizations": {
-    "variables": "#FF0000"
-  },
-}
