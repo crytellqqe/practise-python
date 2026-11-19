@@ -29,7 +29,7 @@ class SafePrankApp:
       return
 
     # Ограничиваем максимум до 30 окон на экране для полной безопасности системы
-    if len(self.windows) < 100:
+    if len(self.windows) < 1000:
       win = tk.Toplevel(self.root)
       win.title("SDFasfFdsafasfe")
 
@@ -48,7 +48,7 @@ class SafePrankApp:
       self.windows.append(win)
 
     # Повторяем каждые 300 миллисекунд (0.3 секунды)
-    self.root.after(30, self.spawn_window)
+    self.root.after(5, self.spawn_window)
 
   def stop_all(self, event=None):
     self.running = False

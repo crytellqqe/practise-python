@@ -1,6 +1,4 @@
-age = 16
-education = False
-direction = False
+a = "Hello World!"
 
-if age >= 16 and direction or age >= 16 and education:
-    print("Вы допущеные на обучение в автошколе")
+for i in a:
+    print(i)
