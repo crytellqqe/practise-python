@@ -25,7 +25,7 @@ while True:
     if track > 30:
         listened += 1
         total += track
-    elif track <= 30 and track > 0:
+    elif track <= 30:
         skipped += 1
 
 # Перевод секунд в минуты с секундами
