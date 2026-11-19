@@ -8,12 +8,15 @@ print("Привет! Это трекер прослушанных треков."
 print("Просто пиши в секундах длительность трека и я в конце выведу сколько треков ты прослушал, сколько всего они длились")
 print("и сколько я пропустил")
 print("Пропускать ли треки меньше нужного количества секунд? (да/нет)")
-choise = input().lower()
+choice = input().lower()
 print("")
 # Ввод, до скольки секунд может быть трек, чтобы он считался пропущенным
-if choise == "да":
+if choice == "да":
     print("Длительностью до скольки секунд пропускать треки?")
-    choise_sec = int(input())
+    choice_sec = int(input())
+    print("")
+    print("Добавлять ли пропущенные треки в общее время прослушивания? (да/нет)")
+    choice_add_skipped = input().lower()
     print("")
 
 # Цикл для вписывания длительности треков и обрывания в случае вписывания 0 и меньше
@@ -25,13 +28,22 @@ while True:
         break
 
     # Проверка для прослушанных и скипнутых треков в зависимости от выбора
-    if choise == "да":
-        if track > choise_sec:
-            listened += 1
+    if choice == "да":
+        # Если добавлять пропущенные треки в общее время
+        if choice_add_skipped == "да":
             total += track
-        elif track <= choise_sec:
-            skipped += 1
-    else:
+            if track > choice_sec:
+                listened += 1
+            elif track <= choice_sec:
+                skipped += 1
+        # Если не добавлять пропущенные треки в общее время
+        elif choice_add_skipped == "нет":
+            if track > choice_sec:
+                listened += 1
+                total += track
+            elif track <= choice_sec:
+                skipped += 1
+    elif choice == "нет":
         total += track
         listened += 1
 
@@ -42,6 +54,6 @@ total_sec = total % 60
 # Статистика
 print("***Статистика***")
 print(f"Прослушано треков: {listened}")
-if choise == "да":
+if choice == "да":
     print(f"Пропущено треков: {skipped}")
 print(f"Всего времени прослушано (без пропущенных треков): {total_min} минут {total_sec} секунд")
