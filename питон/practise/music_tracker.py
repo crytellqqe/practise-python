@@ -10,6 +10,10 @@ print("и сколько я пропустил")
 print("Пропускать ли треки меньше нужного количества секунд? (да/нет)")
 choise = input().lower()
 print("")
+if choise == "да":
+    print("Длительностью до скольки секунд пропускать треки?")
+    choise_sec = int(input())
+    print("")
 
 # Цикл для вписывания длительности треков и обрывания в случае вписывания 0 и меньше
 while True:
@@ -21,10 +25,10 @@ while True:
 
     # Проверка для прослушанных и скипнутых треков в зависимости от выбора
     if choise == "да":
-        if track > 30:
+        if track > choise_sec:
             listened += 1
             total += track
-        elif track <= 30:
+        elif track <= choise_sec:
             skipped += 1
     else:
         total += track
