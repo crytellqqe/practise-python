@@ -5,21 +5,24 @@ button = "space"
 
 # Менюшка
 def menu():
-    print("*****Osu terminal*****")
+    print("*****Clicker Terminal*****")
     print("")
     print("Play (Write: play)")
     print("Change button for click (Write: change)")
     print(f"button: {button}")
     global choice
-    choice = input().lower()
-    if choice == "play":
+    while True:
+        choice = input().lower()
+        if choice == "play":
             game()
-    elif choice == "change":
-        change_button()
+            break
+        elif choice == "change":
+            change_button()
+            break
 
 # Изменение кнопки
 def change_button():
-    print("Write button for clicking or esc for leave to menu")
+    print("Write button for clicking or ESC for leave to menu")
     global button
     button = input().lower()
 
