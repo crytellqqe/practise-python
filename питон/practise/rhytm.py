@@ -9,10 +9,14 @@ def menu():
     print("*****Clicker Terminal*****")
     print("")
     print("Play (Write: play)")
+    print("")
     print("Change button for click (Write: change)")
     print("Change text when click (Write: text)")
+    print("")
     print(f"button: {button}")
     print(f"Text on click: {tittle}")
+    print("")
+    print("For leave write: exit")
     global choice
     while True:
         choice = input().lower()
@@ -24,6 +28,8 @@ def menu():
             break
         elif choice == "text":
             tittle_d()
+            break
+        elif choice == "exit":
             break
 
 # Изменение кнопки
