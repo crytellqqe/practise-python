@@ -22,6 +22,10 @@ def change_button():
     print("Write button for clicking or esc for leave to menu")
     global button
     button = input().lower()
+
+    if button == "esc":
+        menu()
+    
     menu()
 
 # Игра
@@ -30,9 +34,13 @@ def click():
 
 def game():
     print("Click for effect")
-    keyboard.add_hotkey(button, click)
+
+    click_hotkey = keyboard.add_hotkey(button, click)
 
     keyboard.wait("esc")
+
+    keyboard.remove_hotkey(click_hotkey)
+
     menu()
 
 # Запуск
