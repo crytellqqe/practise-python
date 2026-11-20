@@ -6,7 +6,7 @@ tittle = "WoW"
 
 # Менюшка
 def menu():
-    print("*****Clicker Terminal*****")
+    print("*****Clicker.Terminal*****")
     print("")
     print("Play (Write: play)")
     print("")
@@ -17,46 +17,59 @@ def menu():
     print(f"Text on click: {tittle}")
     print("")
     print("For leave write: exit")
-    global choice
     while True:
-        choice = input().lower()
+        choice = input("$ > ").lower()
         if choice == "play":
             game()
-            break
+            return
         elif choice == "change":
             change_button()
-            break
+            return
         elif choice == "text":
             tittle_d()
-            break
+            return
         elif choice == "exit":
             break
+        else:
+            print("Invalid input, try again!")
 
 # Изменение кнопки
 def change_button():
-    print("Write button for clicking or ESC for leave to menu")
     global button
-    button = input().lower()
 
-    if button == "esc":
-        menu()
-    
-    menu()
+    print("Write button for clicking or ESC for leave to menu")
+    while True:   
+        new_button = input("$ > ").lower()
+
+        if new_button == "esc":
+            menu()
+            break
+
+        button = new_button
+        print("Maybe another key? Or leave by writing ESC")
+
 
 # Смена надписи от клика
 def tittle_d():
-    print("Write your text, what you want to see when clicked:")
     global tittle
-    tittle = input()
 
-    menu()
+    print("Write your text, what you want to see when clicked. Or ESC for leave")
+    while True:
+        new_tittle = input("$ > ")
+
+        if new_tittle.lower() == "esc":
+            menu()
+            break
+
+        tittle = new_tittle
+        print("Maybe another text? Or leave by writing ESC")
 
 # Игра
 def click():
     print(tittle)
 
 def game():
-    print("Click for effect")
+    print("Click!")
 
     click_hotkey = keyboard.add_hotkey(button, click)
 
