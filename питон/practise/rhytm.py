@@ -2,6 +2,7 @@ import keyboard
 
 # Переменная отвечающая за нажимаемую кнопку
 button = "space"
+tittle = "WoW"
 
 # Менюшка
 def menu():
@@ -9,7 +10,9 @@ def menu():
     print("")
     print("Play (Write: play)")
     print("Change button for click (Write: change)")
+    print("Change text when click (Write: text)")
     print(f"button: {button}")
+    print(f"Text on click: {tittle}")
     global choice
     while True:
         choice = input().lower()
@@ -18,6 +21,9 @@ def menu():
             break
         elif choice == "change":
             change_button()
+            break
+        elif choice == "text":
+            tittle_d()
             break
 
 # Изменение кнопки
@@ -31,9 +37,17 @@ def change_button():
     
     menu()
 
+# Смена надписи от клика
+def tittle_d():
+    print("Write your text, what you want to see when clicked:")
+    global tittle
+    tittle = input()
+
+    menu()
+
 # Игра
 def click():
-    print("WoW")
+    print(tittle)
 
 def game():
     print("Click for effect")
