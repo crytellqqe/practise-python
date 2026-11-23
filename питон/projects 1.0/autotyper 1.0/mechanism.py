@@ -112,6 +112,23 @@ def add_or_delete():
             a = int(input()) - 1
             texts.pop(a)
 
+            print("Ваши шаблоны:")
+            print("")
+            templates()
+            print("")
+            print("Чтобы вернуться в меню, введите: меню")
+            while True:
+                back = input()
+                if back == "меню":
+                    menu()
+                    break
+                else:
+                    clear()
+                    templates()
+                    print("")
+                    print("Неверный ввод, попробуйте еще раз")
+                    print("Чтобы вернуться в меню, введите: меню")
+
             break
         else:
             print("Неверный ввод, попробуйте еще раз")
