@@ -69,7 +69,7 @@ def add_or_delete():
 
     global a, texts
     
-    print("Добавить или удалить шаблон? Добавить/Удалить")
+    print("Добавить, удалить или переместить шаблон? Добавить/Удалить/Переместить")
     choice = input().lower()
 
     while True:
@@ -86,6 +86,8 @@ def add_or_delete():
             a = int(input()) - 1
             texts.insert(a, text)
 
+            clear()
+            
             print("Ваши шаблоны:")
             print("")
             templates()
@@ -108,9 +110,24 @@ def add_or_delete():
             print("Какой шаблон удалить?")
             print("")
             templates()
-            print("")
+            print("")                
             a = int(input()) - 1
-            texts.pop(a)
+            while True:    
+                try:
+                    texts.pop(a)
+
+                    break
+                except IndexError:
+                    clear()
+
+                    print("У вас нет шаблона под этим номером! Попробуйте еще раз")
+                    print("Какой шаблон удалить?")
+                    print("")
+                    templates()
+                    print("")
+                    a = int(input()) - 1
+                
+            clear()
 
             print("Ваши шаблоны:")
             print("")
@@ -130,8 +147,15 @@ def add_or_delete():
                     print("Чтобы вернуться в меню, введите: меню")
 
             break
+        elif choice == "переместить":
+            print("Какой шаблон и куда вы хотите переместить?")
+
+            break
         else:
+            print("Добавить или удалить шаблон? Добавить/Удалить")
+            print("")
             print("Неверный ввод, попробуйте еще раз")
+            choice = input().lower()
 
 # Функция для печати один раз
 def typer():
