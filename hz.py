@@ -1,5 +1,3 @@
-ages = []
+name = "Artem"
 
-age = len()
-
-print(age)
+print(name.upper())
