@@ -19,8 +19,8 @@ print("Ты скрафтил Карта!")
 used_items.append(inventory.pop(3))
 print("Ты использовал Щит!")
 
-inventory.pop()
-print("Выкинут Ключ!")
+dropped = inventory.pop()
+print(f"Выкинут {dropped}!")
 
 print("")
 
@@ -33,4 +33,5 @@ if len(inventory) > 2:
 
 print("Использованы предметы:")
 for i, item in enumerate(used_items, start=1):
-        print(f"{i}:", item.upper())
+    print(f"{i}:", item.upper())
+print("Осталось предметов в инвентаре: " + str(len(inventory)))
