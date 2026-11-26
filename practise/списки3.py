@@ -34,4 +34,4 @@ if len(inventory) > 2:
 print("Использованы предметы:")
 for i, item in enumerate(used_items, start=1):
     print(f"{i}:", item.upper())
-print("Осталось предметов в инвентаре: " + str(len(inventory)))
+print(f"Осталось предметов в инвентаре: {len(inventory)}")
